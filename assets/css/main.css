@@ -14,7 +14,8 @@
   --f-body:'Tajawal','IBM Plex Sans Arabic',sans-serif;
 }
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth;overflow-x:hidden}
+/* تحذير: ممنوع overflow-x على وسم html — بيكسر ScrollTrigger (بيحوّل html لحاوية سكرول فتقرأ المكتبة السكرول صفرًا). القص الأفقي مكانه body فقط */
+html{scroll-behavior:smooth}
 html:focus-within{scroll-behavior:smooth}
 body{
   font-family:var(--f-body); background:var(--navy-950); color:var(--cream);
