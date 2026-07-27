@@ -21,6 +21,9 @@
   /* ---- خلفية النقاط المتحركة في الهيرو ---- */
   var cv = document.getElementById('dots');
   if (cv && !reduced) {
+    /* تثبيت مقاس العنصر بالستايل المباشر: بدونه مقاس الكانفاس يتبع البيتماب (offsetWidth×DPR) فينفخ الصفحة أفقيًا على شاشات الموبايل */
+    cv.style.width = '100%';
+    cv.style.height = '100%';
     var ctx = cv.getContext('2d');
     var W, H, pts = [];
     function resize() {
