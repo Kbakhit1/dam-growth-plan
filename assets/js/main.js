@@ -85,6 +85,8 @@
         scrollTrigger: { trigger: el, start: 'top 88%' }
       });
     });
+    /* مواضع الترجرز تتحسب قبل اكتمال الخطوط/الصور — إعادة الحساب بعد اللود تمنع بقاء عناصر مخفية على الموبايل */
+    window.addEventListener('load', function () { ScrollTrigger.refresh(); });
   } else {
     document.querySelectorAll('.reveal').forEach(function (el) {
       el.style.opacity = 1; el.style.transform = 'none';
