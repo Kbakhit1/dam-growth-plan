@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>عرض خطة نمو دام — اجتماع المراجعة</title>
+<meta name="theme-color" content="#12202f">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="خطة نمو دام">
+<meta property="og:locale" content="ar_AR">
+<meta property="og:title" content="عرض خطة نمو دام — 90 يومًا">
+<meta property="og:description" content="العرض التقديمي لاجتماع مراجعة خطة النمو — إعداد خالد بخيت.">
+<meta property="og:url" content="https://kbakhit1.github.io/dam-growth-plan/presentation.html">
+<meta property="og:image" content="https://kbakhit1.github.io/dam-growth-plan/assets/img/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://kbakhit1.github.io/dam-growth-plan/assets/img/og-image.png">
+<link rel="icon" type="image/png" href="assets/img/logo.png">
+<style>
+@import url('assets/fonts/fonts-local.css');
+:root{
+  --navy-950:#0a1520; --navy:#12202f; --navy-800:#17304e;
+  --cream:#f5f0e4; --cream-dim:#cfc9b8; --gold:#f2c14e; --gold-strong:#e8ae1f;
+  --teal:#1fa89a; --teal-deep:#128074; --orange:#f07b3f; --ok:#39c07c; --danger:#e5533c;
+  --f-head:'IBM Plex Sans Arabic','Tajawal',sans-serif;
+  --f-body:'Tajawal','IBM Plex Sans Arabic',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%;overflow:hidden}
+body{font-family:var(--f-body);background:var(--navy);color:var(--cream);line-height:1.7}
+b,strong{color:var(--gold)}
+.gold{color:var(--gold)} .teal{color:var(--teal)} .dim{color:var(--cream-dim)}
+
+/* ==== الديك ==== */
+#deck{position:fixed;inset:0}
+.slide{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:5vh 7vw;text-align:center;opacity:0;visibility:hidden;transform:translateX(-40px);
+  transition:opacity .5s ease,transform .5s ease,visibility .5s;
+  background:radial-gradient(1100px 700px at 75% 15%,var(--navy-800) 0%,var(--navy) 60%)}
+.slide.active{opacity:1;visibility:visible;transform:none;z-index:2}
+.slide.before{transform:translateX(40px)}
+/* شبكة نقاط خلفية */
+.slide::before{content:'';position:absolute;inset:0;pointer-events:none;
+  background-image:radial-gradient(rgba(245,240,228,.05) 1.5px,transparent 1.5px);background-size:36px 36px}
+.slide>*{position:relative;z-index:1}
+
+/* ==== عناصر مشتركة ==== */
+.kick{display:inline-flex;align-items:center;gap:8px;color:var(--gold);font-size:clamp(.8rem,1.4vw,1rem);
+  border:1px solid rgba(242,193,78,.4);background:rgba(242,193,78,.08);padding:5px 18px;border-radius:99px;margin-bottom:18px}
+h1{font-family:var(--f-head);font-size:clamp(2rem,5.5vw,4rem);font-weight:700;line-height:1.25}
+h2{font-family:var(--f-head);font-size:clamp(1.5rem,3.6vw,2.6rem);font-weight:700;line-height:1.35;margin-bottom:14px}
+.sub{color:var(--cream-dim);font-size:clamp(1rem,1.9vw,1.3rem);max-width:900px;margin-top:10px}
+.grid{display:grid;gap:16px;width:min(1180px,92vw);margin-top:26px}
+.g2{grid-template-columns:repeat(2,1fr)} .g3{grid-template-columns:repeat(3,1fr)} .g4{grid-template-columns:repeat(4,1fr)}
+.card{background:rgba(21,40,64,.55);border:1px solid rgba(245,240,228,.14);border-radius:16px;padding:20px 18px;text-align:right}
+.card h3{font-family:var(--f-head);color:var(--gold);font-size:clamp(1rem,1.7vw,1.25rem);margin-bottom:8px}
+.card p{color:var(--cream-dim);font-size:clamp(.9rem,1.5vw,1.05rem);line-height:1.8}
+.card .big{display:block;font-family:var(--f-head);font-weight:700;color:var(--cream);font-size:clamp(1.6rem,3.4vw,2.6rem);text-align:center}
+.card small{display:block;color:var(--cream-dim);text-align:center;font-size:clamp(.8rem,1.3vw,.95rem);line-height:1.7;margin-top:6px}
+.tagline{margin-top:26px;font-size:clamp(1.05rem,2vw,1.4rem);color:var(--cream)}
+.tagline b{color:var(--gold)}
+table{border-collapse:collapse;width:min(1000px,90vw);margin-top:22px;font-size:clamp(.85rem,1.6vw,1.1rem)}
+th{background:rgba(242,193,78,.14);color:var(--gold);font-family:var(--f-head);padding:10px 14px;border:1px solid rgba(245,240,228,.15)}
+td{padding:9px 14px;border:1px solid rgba(245,240,228,.12);color:var(--cream)}
+td:first-child{text-align:right;color:var(--cream-dim)}
+.arr{color:var(--teal);font-weight:700}
+
+/* ظهور متدرج داخل السلايد */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .55s ease,transform .55s ease}
+.slide.active .rv{opacity:1;transform:none}
+.slide.active .rv:nth-child(1){transition-delay:.08s}.slide.active .rv:nth-child(2){transition-delay:.16s}
+.slide.active .rv:nth-child(3){transition-delay:.24s}.slide.active .rv:nth-child(4){transition-delay:.32s}
+.slide.active .rv:nth-child(5){transition-delay:.4s}.slide.active .rv:nth-child(6){transition-delay:.48s}
+
+/* ==== الغلاف ==== */
+.cover .logo{height:clamp(70px,11vh,110px);margin-bottom:20px;filter:drop-shadow(0 6px 26px rgba(242,193,78,.22))}
+.cover .who{margin-top:30px;color:var(--cream-dim);font-size:clamp(.95rem,1.7vw,1.15rem)}
+.cover .hint{margin-top:38px;color:rgba(245,240,228,.45);font-size:clamp(.75rem,1.2vw,.9rem);border:1px dashed rgba(245,240,228,.25);border-radius:99px;padding:6px 20px}
+
+/* عقدة المدن */
+.cluster{position:relative;width:min(560px,80vw);height:170px;margin:26px auto 0}
+.pin{position:absolute;display:flex;flex-direction:column;align-items:center;gap:5px}
+.pin i{width:14px;height:14px;border-radius:50%;background:var(--orange);animation:pulse 2.6s infinite}
+.pin.g i{background:var(--gold)}
+.pin span{font-size:clamp(.75rem,1.3vw,.95rem);color:var(--cream-dim);background:rgba(10,21,32,.65);
+  border:1px solid rgba(245,240,228,.15);padding:2px 12px;border-radius:99px;white-space:nowrap}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(242,193,78,.45)}70%{box-shadow:0 0 0 20px rgba(242,193,78,0)}100%{box-shadow:0 0 0 0 rgba(242,193,78,0)}}
+@media (prefers-reduced-motion:reduce){
+  .pin i{animation:none}
+  .slide,.rv{transition:none}
+}
+
+/* الشريط والتنقل */
+#bar{position:fixed;top:0;right:0;height:4px;background:linear-gradient(90deg,var(--gold),var(--teal));z-index:10;transition:width .4s ease}
+#nav{position:fixed;bottom:22px;left:26px;display:flex;align-items:center;gap:12px;z-index:10;direction:ltr}
+#nav button{width:44px;height:44px;border-radius:50%;border:1.5px solid rgba(245,240,228,.35);background:rgba(18,32,47,.7);
+  color:var(--cream);font-size:1.15rem;cursor:pointer;transition:.25s}
+#nav button:hover{border-color:var(--gold);color:var(--gold)}
+#count{position:fixed;bottom:32px;right:30px;color:rgba(245,240,228,.5);font-size:.9rem;z-index:10;font-family:var(--f-head);direction:ltr}
+#dots{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:center;gap:7px;padding:10px;z-index:9}
+#dots i{width:8px;height:8px;border-radius:50%;background:rgba(245,240,228,.22);cursor:pointer;transition:.25s}
+#dots i.on{background:var(--gold);transform:scale(1.25)}
+.foot-logo{position:fixed;top:18px;right:26px;height:34px;opacity:.85;z-index:9}
+
+@media(max-width:820px){
+  .g4{grid-template-columns:repeat(2,1fr)} .g3{grid-template-columns:1fr} .g2{grid-template-columns:1fr}
+  .slide{padding:4vh 5vw;overflow-y:auto;justify-content:flex-start;padding-top:9vh}
+  #dots{display:none}
+}
+</style>
+</head>
+<body>
+
+<div id="bar"></div>
+<img class="foot-logo" src="assets/img/logo.png" alt="دام">
+<div id="deck">
+
+<!-- 1 · الغلاف -->
+<section class="slide cover active">
+  <img class="logo" src="assets/img/logo.png" alt="شعار دام">
+  <div class="kick">✦ اجتماع مراجعة خطة النمو</div>
+  <h1>خطة نمو <span class="gold">دام</span><br>90 يومًا · من الدليل إلى السوق الحيّ</h1>
+  <p class="who">إعداد وتقديم: خالد بخيت · لأستاذة عبير ماجد · يوليو 2026</p>
+  <p class="hint">للتنقل: الأسهم أو المسافة · F لملء الشاشة</p>
+</section>
+
+<!-- 2 · الأجندة -->
+<section class="slide">
+  <h2 class="rv">أجندة اللقاء</h2>
+  <div class="grid g4">
+    <div class="card rv"><h3>١ · فين إحنا دلوقتي</h3><p>الوضع بالأرقام الفعلية من المنصة — والتشخيص في جملة واحدة</p></div>
+    <div class="card rv"><h3>٢ · القرارات الاستراتيجية</h3><p>المنطقة · الشريحة · المؤشر اللي هنقيس بيه كل حاجة</p></div>
+    <div class="card rv"><h3>٣ · خطة الـ90 يومًا</h3><p>ثلاثة شهور بثلاث بوابات قرار — وكل بند له منفّذ ومقياس</p></div>
+    <div class="card rv"><h3>٤ · أول 3 خطوات بكرة</h3><p>وقرارات محتاجينها من حضرتك في اللقاء ده</p></div>
+  </div>
+  <p class="tagline rv">الهدف من اللقاء: نخرج <b>متفقين على الترتيب</b> — مش بس على الأفكار.</p>
+</section>
+
+<!-- 3 · المنهجية -->
+<section class="slide">
+  <h2 class="rv">الكلام ده اتبنى إزاي؟</h2>
+  <p class="sub rv">قبل أي توصية — فحص ميداني كامل، مش انطباعات:</p>
+  <div class="grid g3">
+    <div class="card rv"><h3>🔍 فحص حي من الداخل</h3><p>تصفّح كل صفحات المنصة، ودخول بحساب منظّمة حقيقي، وتحليل الأنشطة الحية نشاطًا نشاطًا</p></div>
+    <div class="card rv"><h3>🧭 قراراتك أساس التوجيه</h3><p>العمودية اللي حددتيها، وملاحظتك إن الجمعيات والصغار أكثر تجاوبًا، وخبرتك التسويقية — مدمجة في صميم الخطة</p></div>
+    <div class="card rv"><h3>⚖️ تحقّق مستقل لكل رقم</h3><p>كل ادعاء عن السوق والمنافسين اتفحص من مصدره — واللي ما ثبتش اتشال</p></div>
+  </div>
+</section>
+
+<!-- 4 · الوضع بالأرقام -->
+<section class="slide">
+  <h2 class="rv">الوضع بالأرقام — من المنصة نفسها</h2>
+  <div class="grid g4">
+    <div class="card rv"><span class="big" data-count="75"></span><small>منظّمة مسجّلة</small></div>
+    <div class="card rv"><span class="big" data-count="27"></span><small>نشروا فعلًا</small></div>
+    <div class="card rv"><span class="big gold" data-count="10"></span><small>بس اللي كرّروا النشر</small></div>
+    <div class="card rv"><span class="big" data-count="14"></span><small>فعالية قادمة على الخريطة</small></div>
+  </div>
+  <p class="tagline rv">والجمهور؟ <b>~20 مستخدمًا</b> — والسبب بسيط: <b>التسويق للجمهور لسه ما بدأش أصلًا.</b></p>
+</section>
+
+<!-- 5 · التشخيص -->
+<section class="slide">
+  <h2 class="rv">التشخيص في جملة واحدة</h2>
+  <p class="sub rv">المشكلة <b>مش</b> قلة عارضين — المشكلة إن <b>دورة العمل ما بتكملش:</b></p>
+  <div class="grid g3">
+    <div class="card rv"><h3>✖️ التكرار واقف</h3><p>اللي جرّب النشر مرة… ما رجعش تاني — 17 منظّمة نشرن مرة واختفن</p></div>
+    <div class="card rv"><h3>✖️ الطلب ما اتبناش</h3><p>مفيش جمهور بيوصل للأنشطة — لأن مفيش تسويق موجّه له بعد</p></div>
+    <div class="card rv"><h3>✖️ القياس مش موجود</h3><p>زر الواتساب بلا عدّاد — يعني كل قرار لحد النهارده بيتاخد بالإحساس مش بالرقم</p></div>
+  </div>
+  <p class="tagline rv">والتلاتة دول <b>قابلين للحل في 90 يومًا</b> — ودي الخطة بالظبط.</p>
+</section>
+
+<!-- 6 · الأساس الموجود -->
+<section class="slide">
+  <h2 class="rv">لكن الأساس موجود — وده مش مجاملة</h2>
+  <div class="grid g4">
+    <div class="card rv"><h3>🗺️ منصة شغّالة فعلًا</h3><p>خريطة تفاعلية بأنشطة حقيقية — أصعب خطوة في أي منصة ناشئة عدّت</p></div>
+    <div class="card rv"><h3>🏆 منظّمات حقيقيات نشيطات</h3><p>أقوى منظّمة على المنصة كلها عندها 11 نشاطًا في القطيف — وبعدها واحدة بـ5 في الجبيل</p></div>
+    <div class="card rv"><h3>💳 استعداد للدفع مثبت</h3><p>3 منظّمات دفعن فعلًا قبل نزول العرض المجاني — بذرة إثبات حقيقية</p></div>
+    <div class="card rv"><h3>📈 العضوي بيتحرك</h3><p>+10 أنشطة عضوية جديدة في 4 أيام فقط أثناء الفحص — النبض موجود</p></div>
+  </div>
+</section>
+
+<!-- 7 · القرار 1: الشرقية -->
+<section class="slide">
+  <div class="kick rv">القرار الاستراتيجي الأول</div>
+  <h2 class="rv">عقدة الشرقية الحيّة — حاضنة الدمام</h2>
+  <div class="cluster rv">
+    <div class="pin" style="top:8%;right:14%"><i></i><span>القطيف</span></div>
+    <div class="pin g" style="top:52%;right:30%"><i></i><span>الدمام</span></div>
+    <div class="pin" style="top:14%;right:52%"><i></i><span>الظهران</span></div>
+    <div class="pin g" style="top:60%;right:66%"><i></i><span>الخبر</span></div>
+  </div>
+  <div class="grid g3">
+    <div class="card rv"><h3>المقر هنا</h3><p>شركتكم في الخبر — والوصول لأي منظّمة أو جهة في العنقود أقل من ساعة</p></div>
+    <div class="card rv"><h3>الزخم الفعلي هنا</h3><p>العرض العضوي بالشرقية 27 نشاطًا مقابل 10 بالرياض — وأقوى منظّمتين فعليًا هنا</p></div>
+    <div class="card rv"><h3>سوق واحد متصل</h3><p>4 مدن متلاصقة · <b>3.39 مليون نسمة</b> (تعداد 2022) — والناس بتتنقل بينها يوميًا</p></div>
+  </div>
+  <p class="tagline rv">⚖️ <b>تركيز الموارد ≠ قفل المنصة</b> — الخريطة تفضل وطنية، لكن الجهد والصرف هنا الأول.</p>
+</section>
+
+<!-- 8 · القرار 2+3 -->
+<section class="slide">
+  <div class="kick rv">القراران الثاني والثالث</div>
+  <h2 class="rv">لمين؟ وبنقيس بإيه؟</h2>
+  <div class="grid g2">
+    <div class="card rv"><h3>🎯 العمودية: أنشطة الأطفال والنساء</h3><p>قرار حضرتك — والأرقام بتسنده: أكثر من <b>1.2 مليون طفل</b> تحت 15 سنة بالمنطقة الشرقية، وأغلب المحتوى الحالي أصلًا كده. (الشباب توسّع بعد يوم 90)</p></div>
+    <div class="card rv"><h3>📏 العملة: نقرة الواتساب الموسومة</h3><p>رقم واحد بيقول إن فيه طلبًا حقيقيًا وتواصلًا حصل فعلًا: <b>كم شخص ضغط زر واتساب للتواصل مع منظّمة؟</b> أي نشاط ما بيرفعش الرقم ده — بنراجع جدواه</p></div>
+  </div>
+  <p class="tagline rv">من النهارده: بنبطّل نتابع المؤشرات المظهرية (عدد المسجلين · إجمالي الأنشطة) — وبنتابع <b>5 أرقام بس</b>.</p>
+</section>
+
+<!-- 9 · الخطة من فوق -->
+<section class="slide">
+  <h2 class="rv">الخطة من فوق: 3 شهور · 3 بوابات · 22 بندًا</h2>
+  <div class="grid g3">
+    <div class="card rv"><h3>الشهر 1 — إزالة العوائق وإعادة التفعيل</h3><p>نوقف الفاقد ونشغّل الموجود — أرخص وأسرع مكاسب متاحة</p><p class="teal" style="margin-top:8px">🚦 بوابة: العرض الحي 35-40 + النسخة الاحتياطية مجرَّبة</p></div>
+    <div class="card rv"><h3>الشهر 2 — تحويل القيمة لرقم</h3><p>المنظّمة تشوف قيمة ملموسة بالأرقام — ده اللي بيخلّيها تكرر وتستمر</p><p class="teal" style="margin-top:8px">🚦 بوابة: 5% من الزوار على الأقل بيضغطوا للتواصل</p></div>
+    <div class="card rv"><h3>الشهر 3 — أول إيراد حقيقي</h3><p>موجة إغلاق عقود الجهات — مدفوعة مقدمًا</p><p class="teal" style="margin-top:8px">🚦 بوابة يوم 90: عقدان فأكثر = المشروع أثبت جدواه</p></div>
+  </div>
+  <p class="tagline rv">كل بند من الـ22: <b>مين ينفّذه + إزاي نعرف إنه اتعمل.</b> مفيش بند بلا مقياس.</p>
+</section>
+
+<!-- 10 · الشهر الأول -->
+<section class="slide">
+  <div class="kick rv">الشهر الأول</div>
+  <h2 class="rv">إزالة العوائق وإعادة التفعيل</h2>
+  <div class="grid g3">
+    <div class="card rv"><h3>🔴 البند العاجل — أول يوم</h3><p>معالجة بيانات بنكية منشورة في وصف نشاط + فلتر آلي يمنع تكرارها</p></div>
+    <div class="card rv"><h3>💬 حملة «كرّريها»</h3><p>رسالة لكل منظّمة نشاطها انتهى: «تحبي ننزّلها تاني؟ أرسلي التاريخ وأنا أنشرها لك خلال ساعة» — لو ربعهم رجعوا، العرض القادم +43%</p></div>
+    <div class="card rv"><h3>📏 عدّاد الواتساب</h3><p>الحل السريع في ساعة + الرابط الوسيط الدقيق 100% — من هنا ورايح كل قرار برقم</p></div>
+    <div class="card rv"><h3>🛡️ تأمين البيانات</h3><p>نسخة احتياطية يومية + تجربة استرجاع فعلية موثّقة — قبل أي شغل تاني</p></div>
+    <div class="card rv"><h3>📄 وثيقة العمل الحر</h3><p>قبولها بديلًا عن السجل التجاري (مجانية وفورية — +2.25 مليون مسجّل) = دام أسهل باب لصاحبة الورشة في السوق كله</p></div>
+    <div class="card rv"><h3>📣 قناة «أجندة الشرقية»</h3><p>كل خميس: 5 أنشطة منتقاة للعائلات — قناة الرجوع اللي بتتراكم بدل محتوى بيختفي</p></div>
+  </div>
+</section>
+
+<!-- 11 · الشهر الثاني -->
+<section class="slide">
+  <div class="kick rv">الشهر الثاني</div>
+  <h2 class="rv">المنظّمة تشوف القيمة — بالرقم</h2>
+  <div class="grid g3">
+    <div class="card rv"><h3>🌐 موقع مصغّر + QR لكل منظّمة</h3><p>باسمها وصورها وأنشطتها — حاجة كانت هتدفع فيها مئات الريالات، بتاخدها من دام مجانًا</p></div>
+    <div class="card rv"><h3>📊 تقرير أسبوعي</h3><p>«12 شخصًا ضغطوا للتواصل معك عبر دام الأسبوع ده» — أول رقم حقيقي تشوفه المنظّمة عن قيمة وجودها</p></div>
+    <div class="card rv"><h3>⭐ مراجعات الحضور الموثّقة</h3><p>بشارة «حضر فعلًا» — الحاجة الوحيدة اللي منشور إنستقرام مش قادر ينافس فيها</p></div>
+    <div class="card rv"><h3>🤝 6-8 تجارب مجانية للجهات</h3><p>كل تجربة معاها اجتماع إغلاق بتاريخ محدد من أول يوم — التجربة بلا موعد بتتحول لخدمة مجانية دائمة</p></div>
+    <div class="card rv"><h3>🎪 ويكند الشرقية</h3><p>نهاية أسبوع مواضيعية بـ5-8 منظّمات — الطلب المتفرق يتجمّع في نقطة واحدة محسوسة</p></div>
+    <div class="card rv"><h3>🔘 زر «احجز عبر دام — قريبًا»</h3><p>بنقيس الطلب على الحجز قبل ما نبنيه — عدد الضغطات هو اللي هيحدد القرار</p></div>
+  </div>
+</section>
+
+<!-- 12 · الشهر الثالث -->
+<section class="slide">
+  <div class="kick rv">الشهر الثالث</div>
+  <h2 class="rv">أول إيراد حقيقي</h2>
+  <div class="grid g3">
+    <div class="card rv"><h3>💰 موجة إغلاق العقود</h3><p><b>2-4 عقود</b> «باقة جهات» بـ<b>3,600 ريال/سنة تُدفع مقدمًا</b> — سعر تأسيسي لأول 10 جهات، بعدها 6,000. والجهة بتاخد: نشر بلا حد + أولوية ظهور + تقرير شهري بيبرر الصرف قدام إدارتها</p></div>
+    <div class="card rv"><h3>📋 قرار الحجز — بالرقم</h3><p>ضغطات زر «احجز قريبًا» + ملاحظات المنظّمات = وثيقة قرار من صفحة: نبني ولا نأجّل، والسبب بالرقم</p></div>
+    <div class="card rv"><h3>🎯 مضاعفة القناة الفائزة</h3><p>بعد شهرين هيبان أي قناة بتجيب أكبر نقرات مقابل ساعة العمل — نركّز فيها ونوقف الباقي</p></div>
+  </div>
+  <p class="tagline rv">وبعد يوم 90؟ <b>سلّم دخل كامل:</b> أدوات مجانية بتبني الاعتماد ← خدمات مدفوعة ← عمولة حجز عبر بوابة مرخّصة.</p>
+</section>
+
+<!-- 13 · المستهدفات -->
+<section class="slide">
+  <h2 class="rv">المستهدفات — اليوم مقابل يوم 90</h2>
+  <table class="rv">
+    <tr><th>المؤشر</th><th>اليوم</th><th></th><th>بعد 90 يومًا</th></tr>
+    <tr><td>فعاليات حية نشرتها منظّمات بأنفسهن</td><td>14</td><td class="arr">←</td><td><b>50-60</b></td></tr>
+    <tr><td>منظّمات نشرن أكثر من مرة</td><td>10</td><td class="arr">←</td><td><b>20</b></td></tr>
+    <tr><td>نقرات واتساب شهريًا</td><td>غير مقاسة</td><td class="arr">←</td><td><b>300-450</b></td></tr>
+    <tr><td>عقود جهات موقّعة</td><td>0</td><td class="arr">←</td><td><b>2-4</b></td></tr>
+    <tr><td>إيراد محصّل مقدمًا</td><td>رمزي</td><td class="arr">←</td><td><b>7,200-14,400 ريال</b></td></tr>
+  </table>
+  <p class="tagline rv">أهداف <b>تُراجع عند كل بوابة شهرية</b> حسب النتائج الفعلية — مش وعود.</p>
+</section>
+
+<!-- 14 · الأدوار -->
+<section class="slide">
+  <h2 class="rv">مين بيعمل إيه — بالسعة الحقيقية</h2>
+  <div class="grid g3">
+    <div class="card rv"><h3>عبير — المبيعات حصريًا</h3><p>تواصل الجهات + اجتماعات الإغلاق + اعتماد شكل المحتوى. <b>خارج نطاقها:</b> التنفيذ اليومي والإدخال</p></div>
+    <div class="card rv"><h3>أمل — التشغيل والمحتوى</h3><p>4 ساعات تفعيل منظّمات · 4 ساعات محتوى · ساعتان قوائم ودعم — <b>ويتوقف:</b> إدخال أنشطة على مدن متفرقة</p></div>
+    <div class="card rv"><h3>أحمد — التقنية ضمن راتبه</h3><p>البنود التقنية بالترتيب المحدد، باتفاق «نطاق شهر» مكتوب يحمي الطرفين — <b>ويتوقف:</b> أي بناء جديد قبل ثبوت الطلب عليه</p></div>
+  </div>
+  <p class="tagline rv">⏱️ والإيقاع: <b>اجتماع الاثنين — نصف ساعة</b> · مراجعة الأرقام الخمسة · وقرار واحد: أي قناة تاخد وقت الفريق الأسبوع الجاي؟</p>
+</section>
+
+<!-- 15 · الختام -->
+<section class="slide">
+  <h2 class="rv">أول 3 خطوات — بكرة الصبح</h2>
+  <div class="grid g3">
+    <div class="card rv"><h3>1️⃣ رسالة لأحمد</h3><p>«محتاجة بالترتيب: فلتر البيانات البنكية · قائمة اللي وقفوا عند خطوة الأوراق · عدّاد زر الواتساب»</p></div>
+    <div class="card rv"><h3>2️⃣ رسالة لأمل</h3><p>«ابدئي حملة (كرّريها) — رسالة لكل منظّمة نشاطها انتهى: تحبي ننزّلها تاني؟»</p></div>
+    <div class="card rv"><h3>3️⃣ حجز الاثنين الجاي</h3><p>نصف ساعة — أول اجتماع لمراجعة الأرقام الخمسة</p></div>
+  </div>
+  <p class="tagline rv">وفي نهاية الـ90 يومًا، قدام حضرتك إجابة بالأرقام على سؤالك الأهم:<br><b>«هل المشروع يستحق الاستمرار؟»</b> — <span class="teal">والحالتان مكسب: نجاح نبني عليه، أو وضوح بيوفّر سنين.</span></p>
+  <p class="sub rv" style="margin-top:22px">📄 الخطة كاملة بالتفاصيل: <b>kbakhit1.github.io/dam-growth-plan</b></p>
+</section>
+
+</div>
+
+<div id="nav"><button id="prevB" title="السابق">‹</button><button id="nextB" title="التالي">›</button></div>
+<div id="count"></div>
+<div id="dots"></div>
+
+<script>
+(function(){
+  'use strict';
+  var slides = [].slice.call(document.querySelectorAll('.slide'));
+  var bar = document.getElementById('bar'), count = document.getElementById('count'), dotsBox = document.getElementById('dots');
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var cur = 0, N = slides.length;
+
+  slides.forEach(function(_, i){
+    var d = document.createElement('i');
+    d.addEventListener('click', function(){ go(i); });
+    dotsBox.appendChild(d);
+  });
+  var dots = [].slice.call(dotsBox.children);
+
+  function animateCounters(slide){
+    slide.querySelectorAll('[data-count]').forEach(function(el){
+      if (el.dataset.done) return;
+      el.dataset.done = '1';
+      var target = parseFloat(el.getAttribute('data-count'));
+      var fmt = new Intl.NumberFormat('en-US');
+      if (reduced) { el.textContent = fmt.format(target); return; }
+      var t0 = null, dur = 1300;
+      function step(ts){
+        if (!t0) t0 = ts;
+        var p = Math.min((ts - t0) / dur, 1);
+        el.textContent = fmt.format(Math.round(target * (1 - Math.pow(1 - p, 3))));
+        if (p < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    });
+  }
+
+  function go(i){
+    if (i < 0 || i >= N || i === cur && slides[cur].classList.contains('active')) {}
+    i = Math.max(0, Math.min(N - 1, i));
+    slides.forEach(function(s, k){
+      s.classList.toggle('active', k === i);
+      s.classList.toggle('before', k > i);
+    });
+    dots.forEach(function(d, k){ d.classList.toggle('on', k === i); });
+    cur = i;
+    bar.style.width = (((i + 1) / N) * 100) + '%';
+    count.textContent = (i + 1) + ' / ' + N;
+    if (history.replaceState) history.replaceState(null, '', '#s' + (i + 1));
+    animateCounters(slides[i]);
+  }
+
+  document.getElementById('nextB').addEventListener('click', function(){ go(cur + 1); });
+  document.getElementById('prevB').addEventListener('click', function(){ go(cur - 1); });
+
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'ArrowLeft' || e.key === 'PageDown' || e.key === ' ') { e.preventDefault(); go(cur + 1); }
+    else if (e.key === 'ArrowRight' || e.key === 'PageUp') { e.preventDefault(); go(cur - 1); }
+    else if (e.key === 'Home') go(0);
+    else if (e.key === 'End') go(N - 1);
+    else if (e.key === 'f' || e.key === 'F') {
+      if (document.fullscreenElement) document.exitFullscreen();
+      else document.documentElement.requestFullscreen && document.documentElement.requestFullscreen();
+    }
+  });
+
+  var tx = null;
+  document.addEventListener('touchstart', function(e){ tx = e.touches[0].clientX; }, {passive:true});
+  document.addEventListener('touchend', function(e){
+    if (tx === null) return;
+    var dx = e.changedTouches[0].clientX - tx;
+    if (Math.abs(dx) > 60) { dx < 0 ? go(cur + 1) : go(cur - 1); }
+    tx = null;
+  }, {passive:true});
+
+  var m = location.hash.match(/^#s(\d+)$/);
+  go(m ? parseInt(m[1], 10) - 1 : 0);
+})();
+</script>
+</body>
+</html>
