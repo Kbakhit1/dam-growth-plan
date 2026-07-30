@@ -275,15 +275,34 @@ body.doc{background:var(--navy-950)}
 
 /* ---------- طباعة (أساس PDF المستقبلي) ---------- */
 @media print{
-  body{background:#fff;color:#14202e}
-  .site-header,#progress,.hero-ctas,#dots,.cluster,footer .no-print{display:none!important}
-  .hero{min-height:auto;background:#fff}
-  section.block{padding:26px 0;page-break-inside:avoid}
-  .card,.spot,.stat,.t-item,.rung,.chk{background:#f6f4ee;border-color:#ddd;color:#14202e;box-shadow:none}
-  .card p,.spot p,.stat small,.t-item .body,.doc-body p{color:#333}
-  a{color:#8a6d1f}
+  /* القاعدة القسرية: كل النصوص غامقة وكل الخلفيات فاتحة — وبعدها استثناءات الهوية.
+     السبب: النسخة الأولى كانت بتسيب النصوص الكريمي/الفاتحة بلون الشاشة فتطبع بيضاء على أبيض */
+  *{box-shadow:none!important;text-shadow:none!important;backdrop-filter:none!important}
+  body{background:#fff!important;color:#14202e!important}
+  body *{color:#14202e!important;border-color:#ddd8ca!important}
+  section.block,section.block.alt{background:#fff!important;padding:26px 0}
+  .card,.spot,.stat,.t-item,.rung,.chk,.gate,.toc-item,.ba-table,.files .card{background:#f7f5ef!important}
+  .card p,.spot p,.stat small,.t-item .body,.doc-body p,.sec-head p,.m-head p{color:#3a4450!important}
+  .ba-table th{background:#e9e4d6!important}
+  .bar{background:#e9e4d6!important}
+  .bar i{background:#b8860b!important}
+
+  /* ألوان التمييز ترجع بعد القاعدة القسرية */
+  h2,h3,.sec-head h2{color:#1b3a5c!important}
+  .eyebrow,.kpi{color:#128074!important}
+  .stat b,.toc-item .n,.t-item .num,.num{color:#b8860b!important}
+  a,.go{color:#8a6d1f!important}
+  .who,.stage{color:#8a8578!important}
+
+  /* الغلاف (الهيرو) يفضل بهوية دام الداكنة — الشعار كريمي فلازم خلفيته كحلي */
+  .hero{min-height:auto;background:#12202f!important;border-radius:14px;margin:0 8px;padding:24px 0}
+  .hero *{color:#f5f0e4!important}
+  .hero .sub,.hero .kicker{color:#cfc9b8!important}
+  .hero h1 .accent,.hero .kicker{color:#f2c14e!important}
+
+  .site-header,#progress,.hero-ctas,#dots,.cluster,footer .no-print,.pdf-btn,.doc-toc{display:none!important}
+  .doc-layout{display:block!important}
   .reveal{opacity:1!important;transform:none!important}
   .t-item .chev{display:none}
-  details.t-item{page-break-inside:avoid}
-  .pdf-btn{display:none!important}
+  details.t-item,.card,.rung,.gate{page-break-inside:avoid}
 }
