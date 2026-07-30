@@ -67,6 +67,8 @@ h1,h2,h3,h4{font-family:var(--f-head);line-height:1.45}
 .btn-gold:hover{background:#ffd76e;color:var(--navy-950);transform:translateY(-2px)}
 .btn-ghost{border:1.5px solid rgba(245,240,228,.35);color:var(--cream)}
 .btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
+.pdf-btn{display:inline-flex;align-items:center;gap:6px;border:1.5px solid rgba(242,193,78,.5);color:var(--gold);border-radius:99px;padding:5px 14px;font-size:.85rem;font-weight:700;white-space:nowrap;transition:.25s}
+.pdf-btn:hover{background:var(--gold);color:var(--navy-950)}
 
 /* عقدة المدن في الهيرو */
 .cluster{position:absolute;left:4%;top:16%;width:340px;height:420px;z-index:1;opacity:.95}
@@ -281,4 +283,7 @@ body.doc{background:var(--navy-950)}
   .card p,.spot p,.stat small,.t-item .body,.doc-body p{color:#333}
   a{color:#8a6d1f}
   .reveal{opacity:1!important;transform:none!important}
+  .t-item .chev{display:none}
+  details.t-item{page-break-inside:avoid}
+  .pdf-btn{display:none!important}
 }

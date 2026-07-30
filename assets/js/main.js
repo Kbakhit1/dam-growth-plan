@@ -136,6 +136,26 @@
     });
   }
 
+  /* ---- تجهيز الطباعة/PDF: فتح كل البنود المطوية وملء العدادات ---- */
+  window.addEventListener('beforeprint', function () {
+    document.querySelectorAll('details:not([open])').forEach(function (d) {
+      d.setAttribute('data-print-opened', '1');
+      d.open = true;
+    });
+    var fmt = new Intl.NumberFormat('ar-EG');
+    document.querySelectorAll('[data-count]').forEach(function (el) {
+      if (!el.textContent.trim()) {
+        el.textContent = fmt.format(parseFloat(el.getAttribute('data-count'))) + (el.getAttribute('data-suffix') || '');
+      }
+    });
+  });
+  window.addEventListener('afterprint', function () {
+    document.querySelectorAll('details[data-print-opened]').forEach(function (d) {
+      d.open = false;
+      d.removeAttribute('data-print-opened');
+    });
+  });
+
   /* ---- فتح الروابط العميقة على القسم مع تعويض الهيدر ---- */
   function offsetJump() {
     if (location.hash) {
