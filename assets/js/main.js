@@ -148,6 +148,10 @@
         el.textContent = fmt.format(parseFloat(el.getAttribute('data-count'))) + (el.getAttribute('data-suffix') || '');
       }
     });
+    /* أعمدة القياس بتتملي بالتمرير — في الطباعة نمليها فورًا */
+    document.querySelectorAll('.bar i[data-w]').forEach(function (b) {
+      b.style.width = b.getAttribute('data-w') + '%';
+    });
   });
   window.addEventListener('afterprint', function () {
     document.querySelectorAll('details[data-print-opened]').forEach(function (d) {
